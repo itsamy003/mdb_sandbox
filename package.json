@@ -1,0 +1,25 @@
+{
+  "name": "mdb_sandbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsamy003/mdb_sandbox.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itsamy003/mdb_sandbox/issues"
+  },
+  "homepage": "https://github.com/itsamy003/mdb_sandbox#readme",
+  "dependencies": {
+    "mocha": "^6.0.2",
+    "mongoose": "^5.4.19",
+    "nodemon": "^1.18.10"
+  }
+}
