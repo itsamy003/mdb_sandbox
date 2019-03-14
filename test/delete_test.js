@@ -18,8 +18,8 @@ describe('deleting users out of the database', () => {
             })
     });
 
-    it.only('class method remove', (done) => {
-        User.remove({name: 'sansi'})
+    it('class method remove', (done) => {
+        User.deleteOne({name: 'sansi'})
             .then(() => User.findOne({name:'sansi'}))
             .then(user => {
                 assert(user === null);
