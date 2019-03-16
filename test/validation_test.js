@@ -21,7 +21,7 @@ describe('validating records', () => {
 
     });
 
-    it.only('disallows invalid records from being saved', (done) => {
+    it('disallows invalid records from being saved', (done) => {
         const sansi = new User({ name: 'sa' });
         sansi.save()
             .catch((validationResult) => {
