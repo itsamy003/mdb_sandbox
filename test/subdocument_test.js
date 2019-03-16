@@ -12,7 +12,7 @@ describe('subdocuments', () => {
             })
     });
 
-    it.only('can add a sudocument to an existing record', (done) => {
+    it('can add a sudocument to an existing record', (done) => {
         const alex = new User({ name: 'alex', posts: [] });
         alex.save()
             .then(() => User.findOne({ name: 'alex' }))
@@ -27,6 +27,21 @@ describe('subdocuments', () => {
                         done();
                     })
             });
+    });
 
-    })
+    it.only('can remove an existing subdocument',(done) => {
+        const ammi = new User({ name: 'ammi', posts: [{title: 'New title'}]});
+            ammi.save()
+                .then(() => User.findOne({name: 'ammi'}))
+                .then((user) => {
+                    const post = user.posts[0];
+                    post.remove();
+                    return user.save();
+                })
+                .then(() => User.findOne({name: 'ammi'}))
+                .then((users) => {
+                    assert(users.posts.length === 0);
+                    done();
+                })
+    });
 });
