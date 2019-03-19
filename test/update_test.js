@@ -14,7 +14,7 @@ describe('updating records', () => {
         });
     }
     beforeEach((done) => {
-        sansi = new User({name:'sansi', postCount:100});
+        sansi = new User({name:'sansi', likes:1});
         sansi.save()
             .then(() => done());
     });
@@ -44,7 +44,11 @@ describe('updating records', () => {
     });
 
     it('a user can have their postCount incremented by 1', (done) => {
-         User.findOneAndUpdate({name:'sansi'}, {$inc : {postCount : 1}}).exec(); 
-         done();       
+         User.findOneAndUpdate({name:'sansi'}, {$inc : {likes : 5}})
+         .then(() => User.findOne({name:'sansi'}))
+         .then((user) => {
+             assert(user.likes === 6);
+             done();       
+         })
     });
 });

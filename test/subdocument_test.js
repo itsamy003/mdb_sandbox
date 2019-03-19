@@ -29,7 +29,7 @@ describe('subdocuments', () => {
             });
     });
 
-    it.only('can remove an existing subdocument',(done) => {
+    it('can remove an existing subdocument',(done) => {
         const ammi = new User({ name: 'ammi', posts: [{title: 'New title'}]});
             ammi.save()
                 .then(() => User.findOne({name: 'ammi'}))
