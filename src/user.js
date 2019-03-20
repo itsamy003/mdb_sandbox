@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const postSchema = require('./post');
 const Scheema = mongoose.Schema;
 
+//define user schema
 const UserSchema = new Scheema({
     name: {
         type: String,
